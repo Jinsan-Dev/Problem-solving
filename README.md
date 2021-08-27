@@ -1,11 +1,12 @@
-# 파이썬(Python3)을 이용한 코딩 테스트(Problem-solving)를 대비
+# 파이썬(Python3)을 이용한 코딩 테스트를 대비
+
 
 ## 입력 및 출력
 
 ##### map() -> 리스트의 모든 원소에 각각 특정한 함수를 적용할 때 사용
 
     # 공백을 기준으로 구분된 데이터를 입력받을 때
-    list(map(int, imput().split()))         # input() 메소드로 한 줄의 문자열을 받고, split()으로 공백제거 후, 구분된 원소에 int 함수 적용
+    list(map(int, input().split()))         # input() 메소드로 한 줄의 문자열을 받고, split()으로 공백제거 후, 구분된 원소에 int 함수 적용
     a, b, c = map(int,input().split())      # 여러개의 원소를 한번에 할당할 수 있음
     
     # input 보다 빠른 메소드
@@ -82,3 +83,13 @@ list[-n] --> list의 뒤에서부터 n번째 원소를 의미
     a.update([9,10])                        # 원소 n개 추가
     a.remove(8)                             # 원소 제거
 
+
+## 람다 표현식 (lambda)
+
+간단한 연산을 함수를 만들지 않고서도 가능하도록 함
+
+    print((lambda a, b: a+b)(3, 7))         # (lambda 필요한 파라미터: 연산)(실제 파라미터)
+    
+    arr = [('val1', 40), ('val2', 60), ('val3', 80)]
+    print(sorted(arr, key=lambda x: x[1]))  # x[1]을 기준으로 소팅
+    
