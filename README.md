@@ -6,17 +6,17 @@
 ##### map() -> 리스트의 모든 원소에 각각 특정한 함수를 적용할 때 사용
 
     # 공백을 기준으로 구분된 데이터를 입력받을 때
-    list(map(int, input().split()))         # input() 메소드로 한 줄의 문자열을 받고, split()으로 공백제거 후, 구분된 원소에 int 함수 적용
-    a, b, c = map(int,input().split())      # 여러개의 원소를 한번에 할당할 수 있음
+    list(map(int, input().split()))             # input() 메소드로 한 줄의 문자열을 받고, split()으로 공백제거 후, 구분된 원소에 int 함수 적용
+    a, b, c = map(int,input().split())          # 여러개의 원소를 한번에 할당할 수 있음
     
     # input 보다 빠른 메소드
     import sys
-    data = sys.stdin.readline().rstrip()    # rstrip() -> 엔터 문자를 없앰
+    data = sys.stdin.readline().rstrip()        # rstrip() -> 엔터 문자를 없앰
     
 ##### print(f'{}')
 
     result = 7
-    print(f'정답은 {result}입니다')            # 형변환할 필요가 없음
+    print(f'정답은 {result}입니다')              # 형변환할 필요가 없음
 
 ##### 함수는 여러개의 값을 리턴 가능함
 
@@ -33,15 +33,15 @@ list[-n] --> list의 뒤에서부터 n번째 원소를 의미
 
 ##### n x m 크기의 배열을 한줄에 선언하는 법
 
-    array = [[0]*m for _ in range(n)]       # 이때, 반복을 수행하되 반복을 위한 변수의 값을 무시하고자할 때 언더바(_) 사용
+    array = [[0]*m for _ in range(n)]           # 이때, 반복을 수행하되 반복을 위한 변수의 값을 무시하고자할 때 언더바(_) 사용
     
 ##### 리스트 관련 메소드
 
     array.sort()
-    array.sort(reverse=True)                # 내림차순
-    array.reverse()                         # 리스트 순서 반대로
+    array.sort(reverse=True)                    # 내림차순
+    array.reverse()                             # 리스트 순서 반대로
     array.insert(idx, value)
-    array.count(value)                      # 리스트 내 값의 개수를 반환
+    array.count(value)                          # 리스트 내 값의 개수를 반환
     array.remove(idx)
     
 ###### 리스트에 존재하는 특정 원소를 모두 제거할 때
@@ -64,8 +64,8 @@ list[-n] --> list의 뒤에서부터 n번째 원소를 의미
 
     data = dict()
     data['key'] = 'value'
-    keyList = data.keys()                   # key 값들만 뽑아서 리스트 반환
-    valueList = data.values()               # value 값들만 뽑아서 리스트로 반환
+    keyList = data.keys()                       # key 값들만 뽑아서 리스트 반환
+    valueList = data.values()                   # value 값들만 뽑아서 리스트로 반환
     
 
 ## 집합 (Set)
@@ -76,20 +76,54 @@ list[-n] --> list의 뒤에서부터 n번째 원소를 의미
     
 ###### 집합 관련 메소드 (a,b 가 집합일 때)
 
-    a|b                                     # 합집합 (or)
-    a&b                                     # 교집합 (and)
-    a-b                                     # 차집합
-    a.add(8)                                # 집합에 원소 1개 추가
-    a.update([9,10])                        # 원소 n개 추가
-    a.remove(8)                             # 원소 제거
+    a|b                                         # 합집합 (or)
+    a&b                                         # 교집합 (and)
+    a-b                                         # 차집합
+    a.add(8)                                    # 집합에 원소 1개 추가
+    a.update([9,10])                            # 원소 n개 추가
+    a.remove(8)                                 # 원소 제거
 
 
 ## 람다 표현식 (lambda)
 
 간단한 연산을 함수를 만들지 않고서도 가능하도록 함
 
-    print((lambda a, b: a+b)(3, 7))         # (lambda 필요한 파라미터: 연산)(실제 파라미터)
+    print((lambda a, b: a+b)(3, 7))             # (lambda 필요한 파라미터: 연산)(실제 파라미터)
     
     arr = [('val1', 40), ('val2', 60), ('val3', 80)]
-    print(sorted(arr, key=lambda x: x[1]))  # x[1]을 기준으로 소팅
+    print(sorted(arr, key=lambda x: x[1]))      # x[1]을 기준으로 소팅
     
+여러 리스트에도 적용 가능함
+
+    list1 = [1,2,3,4,5]
+    list2 = [6,7,8,9,10]
+    result = map(lambda a,b: a+b, list1, list2)
+    list(result) --> [7,9,11,13,15]
+    
+
+## 자주 사용하는 내장 함수
+
+##### 순열 및 조합
+
+    from itertools import permutations, combinations, combination_with_replacement
+    data = ['a', 'b', 'c']
+    nPr = list(permutations(data, 3))           # permutations(dataSource, r)
+    nCr = list(combinations(data, 2))           # combinations(dataSource, r)
+    
+    #중복을 허용한 조합
+    res = list(combination_with_replacement(data, 2))
+
+##### 원소 등장 횟수
+
+    from collections import Counter
+    counter = Counter(['r', 'b', 'r', 'r'])
+    counter['r'] --> 3
+    counter['b'] --> 1
+
+##### 최소공배수, 최대공약수
+
+    import math
+    def lcm(a, b):
+        return a*b//math.gcd(a,b)
+
+
