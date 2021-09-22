@@ -4,7 +4,7 @@
 # 내 답안
 def answer(S):
   answer = ''
-  s = map(int, list(S))
+  s = list(map(int, S)
   for num in s:
     if num == 0 or num == 1:
       answer+=num
