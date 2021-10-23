@@ -1,13 +1,9 @@
 # 삼성 계열사 코딩 테스트 준비
 
-## 문제유형
+### 문제유형
 
 
-
-### Dynamic programming
-
-
-### DFS & BFS
+## DFS & BFS
 
 <img width="669" alt="Screen Shot 2021-10-18 at 9 31 46 PM" src="https://user-images.githubusercontent.com/88572107/137731091-01484ed3-dd17-4b4b-ada1-67d2dfc894f8.png">
 
@@ -41,4 +37,11 @@
 6. 마무리.
 
 
-### Simulation
+## 구현 (Simulation + Brute force)
+
+
+
+
+
+
+## Dynamic programming
