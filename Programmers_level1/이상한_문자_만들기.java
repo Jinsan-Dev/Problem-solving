@@ -1,32 +1,28 @@
+//   print(arr) 은 arr의 object value 즉, 주소값을 반환한다.
+//   다만 print(arr[i]) 은 해당 자리의 문자열을 가져오므로,
+//   arr[i].toUpperCase() 는 대문자를 반환하게 된다.
+
 import java.util.*;
 
 class Solution {
     public String solution(String s) {
         StringBuilder answer = new StringBuilder();
-        String[] arr = s.split(" ");
+        int idx = 0;
+        String[] arr = s.split("");
         for(int i=0;i<arr.length;i++){
-            if(arr[i].equals("")){
+            if(arr[i].equals(" ")){
+                answer.append(" ");
+                idx = 0;
                 continue;
-            }
-            StringBuilder temp = new StringBuilder(arr[i]);
-            for(int j=0;j<temp.length();j++){
-                if(j%2 == 0){
-                    temp.setCharAt(j, makeUpper(temp.charAt(j)));
-                }else if(j%2 != 0){
-                    temp.setCharAt(j, makeLower(temp.charAt(j)));
+            }else{
+                idx++;
+                if(idx%2 == 1){
+                    answer.append(arr[i].toUpperCase());
+                }else{
+                    answer.append(arr[i].toLowerCase());
                 }
             }
-            answer.append(temp.toString()+" ");
         }
-        answer.deleteCharAt(answer.length()-1);
         return answer.toString();
-    }
-    
-    public char makeUpper(char s){
-        return Character.toUpperCase(s);
-    }
-    
-    public char makeLower(char s){
-        return Character.toLowerCase(s);
     }
 }
