@@ -1,3 +1,23 @@
+class Solution {
+    public boolean solution(int x) {
+        String val = Integer.toString(x);
+        String[] arr = val.split("");
+        int add = 0;
+        
+        for(int i=0;i<arr.length;i++){
+            add+=Integer.parseInt(arr[i]);
+        }
+        
+        if(x%add == 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
+
+----------------------------------------------
+
 def solution(x):
     if x == 10000:
         return True
