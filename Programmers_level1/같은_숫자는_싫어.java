@@ -23,3 +23,25 @@ public class Solution {
         return dap;
     }
 }
+
+---------------------------------------------------------
+# 모범답안
+
+
+import java.util.*;
+
+public class Solution {
+    public int[] solution(int []arr) {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(arr[0]);
+        int idx = 0;
+        for(int a: arr){
+            if(list.get(idx) != a){
+                list.add(a);
+                idx++;
+            }
+        }
+
+        return list.stream().mapToInt(Integer::intValue).toArray();
+    }
+}
