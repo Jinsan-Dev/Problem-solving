@@ -22,3 +22,24 @@ class Solution {
         return name;
     }
 }
+
+----------------------------------------------------------
+# 다른풀이법
+
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        HashMap<String, Integer> map = new HashMap<>();
+        
+        for(int i=0;i<participant.length;i++){
+            map.put(participant[i], map.getOrDefault(participant[i], 0)+1);
+        }
+        
+        for(String c: completion){
+            int temp = map.get(c)-1;
+            if(temp == 0) map.remove(c);
+            else map.put(c, temp);
+        }
+
+        return map.keySet().iterator().next();
+    }
+}
